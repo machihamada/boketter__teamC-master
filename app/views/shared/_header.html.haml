@@ -1,0 +1,30 @@
+.fixed
+  #top-bar.top-bar
+    #top-navi
+      %ul.title-area
+        %li.name
+          =link_to root_path do
+            = image_tag "logo.png",class: "logo_bokete"
+      .top-bar-section
+        %ul.left
+          %li.left__style
+            = link_to "ボケ","https://bokete.jp/"
+          %li.left__style
+            = link_to "お題","https://bokete.jp/"
+          %li.left__style
+            = link_to "職人","https://bokete.jp/"
+        %ul.right
+          - if user_signed_in?
+            %li.right__style
+              = link_to "#" do
+                = image_tag "wood_pattern.png",class: "user-icon-top-bar"
+                ayk6611
+            %li.right__style
+              = link_to "マイページ", edit_user_path(current_user.id)
+          - else
+            %li
+              = link_to "新規登録", new_user_registration_path
+            %li
+              = link_to "ログイン", new_user_session_path
+          %li.right__style
+            = link_to "ヘルプ","https://www.yahoo.co.jp/"
